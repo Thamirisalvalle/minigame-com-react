@@ -9,7 +9,7 @@ function GameScreen({ endGame, winGame }) {
     // Acompanhar a posição atual da sequência
     const [currentIndex, setCurrentIndex] = useState(0);
     // Tempo restante
-    const [timeLeft, setTimeLeft] = useState(30); // definindo 30 segundos de limite para resolver o game
+    const [timeLeft, setTimeLeft] = useState(10); // definindo tempo de limite para resolver o game
 
     useEffect(() => {
         // Gerar sequência de 5 letras aleatória, inicia o temporizador e se o time chegar em 0 o game termina
