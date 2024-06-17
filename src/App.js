@@ -2,11 +2,12 @@ import React, {useState, useEffect} from 'react';
 import GameScreen from './components/GameScreen'; // importação dos componentes
 
 function App() {
-  // Definição de estados
+  // Definição de estados para iniciar o game e para armazenar as pontuações
   const [gameState, setGameState] = useState('start');
   const [highScores, setHighScores] = useState([]);
 
 
+  // Carregamento das pontuações armazenadas no localStorage
   useEffect (() => {
     const storedScores = JSON.parse(localStorage.getItem('highScores')) || [];
     setHighScores(storedScores);
@@ -22,6 +23,7 @@ function App() {
     setGameState('gameover');
   };
 
+  // Calcula o tempo gasto pelo jogador, atualiza as pontuações, armazena no localStorage e muda o estado para Success
   const winGame = (timeLeft) => { // Colocado timeLeft como parâmetro para Ranking
     const endTime = 10 - timeLeft;
     const newScore = { time: endTime, date: new Date().toLocaleString() };
@@ -31,6 +33,7 @@ function App() {
     setGameState('success');
   };
 
+  // Renderiza diferentes componentes e mensagens dependendo do estado do jogo e mostra o Ranking
   return (
     // Mostrar botão iniciar jogo e novo jogo, mostrar a tela do jogo e mensagem de game over ou a mensagem de acertou tudo
     <div className="App">

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import KeyDisplay from './KeyDisplay';
 import Timer from './Timer';
 
+// Criação de estados para a sequência de teclas
 function GameScreen({ endGame, winGame }) {
     // Armazena a sequência de teclas
     const [sequence, setSequence] = useState([]);
@@ -12,7 +13,7 @@ function GameScreen({ endGame, winGame }) {
     const [timeLeft, setTimeLeft] = useState(10); // definindo tempo de limite para resolver o game
 
     useEffect(() => {
-        // Gerar sequência de 5 letras aleatória, inicia o temporizador e se o time chegar em 0 o game termina
+        // Gerar sequência de 5 letras aleatória e armazena o estado, inicia o temporizador e se o time chegar em 0 o game termina
         const generateSequence = () => {
             const keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             const newSequence = [];
@@ -47,7 +48,7 @@ function GameScreen({ endGame, winGame }) {
         const pressedKey = event.key.toUpperCase();
         console.log('Tecla Pressionada:', pressedKey); // Log para depuração
         console.log('Tecla Esperada:', sequence[currentIndex]);
-        // Verifica se a tecla é correta na sequência e atualiza, caso esteja errada o jogo termina
+        // Verifica se a tecla é correta na sequência e atualiza se for correta chama winGame, caso esteja errada o jogo termina e chama o endGame
         if (pressedKey === sequence[currentIndex]) {
             console.log('Tecla Correta!'); // Log para depuração
             if (currentIndex === sequence.length - 1) {
