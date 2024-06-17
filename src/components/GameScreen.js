@@ -21,7 +21,7 @@ function GameScreen({ endGame, winGame }) {
                 newSequence.push(keys[randomIndex]);
             }
             setSequence(newSequence);
-            console.log('Generated sequence:', newSequence); // Log para depuração 
+            console.log('Sequência Gerada:', newSequence); // Log para depuração 
         };
 
         generateSequence();
@@ -45,18 +45,18 @@ function GameScreen({ endGame, winGame }) {
     const handleKeyPress = (event) => {
         // Detecta a tecla pressionada
         const pressedKey = event.key.toUpperCase();
-        console.log('Pressed key:', pressedKey); // Log para depuração
-        console.log('Expected key:', sequence[currentIndex]);
+        console.log('Tecla Pressionada:', pressedKey); // Log para depuração
+        console.log('Tecla Esperada:', sequence[currentIndex]);
         // Verifica se a tecla é correta na sequência e atualiza, caso esteja errada o jogo termina
         if (pressedKey === sequence[currentIndex]) {
-            console.log('Correct key!'); // Log para depuração
+            console.log('Tecla Correta!'); // Log para depuração
             if (currentIndex === sequence.length - 1) {
-                winGame();
+                winGame(timeLeft);
             } else {
                 setCurrentIndex((prev) => prev + 1);
             }
         } else {
-            console.log('Wrong key!'); // Log para depuração
+            console.log('Tecla Errada!'); // Log para depuração
             endGame();
         }
     };

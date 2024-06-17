@@ -9,7 +9,7 @@ function App() {
 
   useEffect (() => {
     const storedScores = JSON.parse(localStorage.getItem('highScores')) || [];
-    setHighScores(storeScores);
+    setHighScores(storedScores);
   }, []);
 
   // Iniciar o Jogo
@@ -22,7 +22,7 @@ function App() {
     setGameState('gameover');
   };
 
-  const winGame = () => {
+  const winGame = (timeLeft) => { // Colocado timeLeft como parâmetro para Ranking
     const endTime = 10 - timeLeft;
     const newScore = { time: endTime, date: new Date().toLocaleString() };
     const updatedScores = [...highScores, newScore].sort((a, b) => a.time - b.time).slice(0, 5);
@@ -54,12 +54,32 @@ function App() {
         <div>
           <div>Gamer Over</div>
           <button onClick={startGame}>Novo Jogo</button>
+          <div>
+            <h2>Melhores Pontuações:</h2>
+            <ul>
+              {highScores.map((score, index) => (
+                <li key={index}>
+                  {score.time}s - {score.date}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
       {gameState === 'success' && (
         <div>
           <div>Você acertou todas as Teclas! Parabéns</div>
           <button onClick={startGame}>Novo Jogo</button>
+          <div>
+          <h2>Melhores Pontuações:</h2>
+            <ul>
+              {highScores.map((score, index) => (
+                <li key={index}>
+                  {score.time}s - {score.date}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
       
