@@ -40,7 +40,7 @@ function App() {
       {gameState === 'start' && (
         <>        
           <button onClick={startGame}>Iniciar</button>
-          <div>
+          <div className="high-scores">
             <h2>Melhores Pontuações:</h2>
             <ul>
               {highScores.map((score, index) => (
@@ -55,9 +55,9 @@ function App() {
       {gameState === 'playing' && <GameScreen endGame={endGame} winGame={winGame} />}
       {gameState === 'gameover' && (
         <div>
-          <div>Gamer Over</div>
+          <div className="game-message-end">Gamer Over</div>
           <button onClick={startGame}>Novo Jogo</button>
-          <div>
+          <div className="high-scores">
             <h2>Melhores Pontuações:</h2>
             <ul>
               {highScores.map((score, index) => (
@@ -71,9 +71,9 @@ function App() {
       )}
       {gameState === 'success' && (
         <div>
-          <div>Você acertou todas as Teclas! Parabéns</div>
+          <div className="game-message">Você acertou todas as Teclas! Parabéns</div>
           <button onClick={startGame}>Novo Jogo</button>
-          <div>
+          <div className="high-scores">
           <h2>Melhores Pontuações:</h2>
             <ul>
               {highScores.map((score, index) => (

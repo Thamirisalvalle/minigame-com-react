@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+
+// Importação do css para estilização
+import '../styles/GameScreen.css';
 // Importações de componente
 import KeyDisplay from './KeyDisplay';
 import Timer from './Timer';
@@ -71,12 +74,18 @@ function GameScreen({ endGame, winGame }) {
     }, [currentIndex, sequence]);
 
     return (
-        <div>
-            <Timer timeLeft={timeLeft} />
-            <div>
-                {sequence.map((key, index) => (
-                    <KeyDisplay key={index} keyChar={key} isActive={index === currentIndex} />
-                ))}
+        <div className="minigame-container">
+            <div className="minigamer-wrapper">
+                <Timer timeLeft={timeLeft} />
+                <div>
+                    {sequence.map((key, index) => (
+                        <KeyDisplay 
+                            key={index} 
+                            keyChar={key} 
+                            isActive={index === currentIndex} 
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );
