@@ -24,21 +24,21 @@ O componente `App` controla o estado geral do jogo. Ele inclui o botão de "Inic
 
 O projeto possui a seguinte estrutura de arquivos:
 
-minigame-com-react/
+    minigame-com-react/
 
-    src/
-        components/
-            GameScreen.js
-            KeyDisplay.js
-            Timer.js
+        src/
+            components/
+                GameScreen.js
+                KeyDisplay.js
+                Timer.js
 
-        styles/
-            GameScreen.css
+            styles/
+                GameScreen.css
 
-        App.js
-        index.js
-        index.css
-    README.md
+            App.js
+            index.js
+            index.css
+        README.md
 
 
 
