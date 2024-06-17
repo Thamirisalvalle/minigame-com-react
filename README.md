@@ -24,7 +24,7 @@ O componente `App` controla o estado geral do jogo. Ele inclui o botão de "Inic
 
 O projeto possui a seguinte estrutura de arquivos:
 
-/minigame-com-react
+minigame-com-react/
     src/
         components/
             GameScreen.js
